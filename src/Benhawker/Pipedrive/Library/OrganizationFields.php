@@ -40,7 +40,7 @@ class OrganizationFields
      */
     public function getAll()
     {
-        return $this->curl->get('OrganizationFields');
+        return $this->curl->get('organizationFields');
     }
     
     /**
@@ -51,7 +51,7 @@ class OrganizationFields
      */
     public function getById($id)
     {
-        return $this->curl->get('OrganizationFields/' . $id);
+        return $this->curl->get('organizationFields/' . $id);
     }
 
     /**
@@ -67,7 +67,7 @@ class OrganizationFields
             throw new PipedriveMissingFieldError('You must include a "name" field when inserting a organizationField');
         }
 
-        return $this->curl->post('OrganizationFields', $data);
+        return $this->curl->post('organizationFields', $data);
     }
 
 }

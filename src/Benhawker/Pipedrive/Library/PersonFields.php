@@ -40,7 +40,7 @@ class PersonFields
      */
     public function getAll()
     {
-        return $this->curl->get('PersonFields');
+        return $this->curl->get('personFields');
     }
     
     /**
@@ -51,7 +51,7 @@ class PersonFields
      */
     public function getById($id)
     {
-        return $this->curl->get('PersonFields/' . $id);
+        return $this->curl->get('personFields/' . $id);
     }
 
     /**
@@ -67,7 +67,7 @@ class PersonFields
             throw new PipedriveMissingFieldError('You must include a "name" field when inserting a personField');
         }
 
-        return $this->curl->post('PersonFields', $data);
+        return $this->curl->post('personFields', $data);
     }
 
 }

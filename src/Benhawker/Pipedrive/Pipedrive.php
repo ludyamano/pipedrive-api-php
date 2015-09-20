@@ -1,6 +1,8 @@
-<?php namespace Benhawker\Pipedrive;
+<?php
 
-    /**
+namespace Benhawker\Pipedrive;
+
+/**
  * Pipedrive API wrapper class v0.1
  *
  * Author: Ben Hawker (ben@tickettoridegroup.com) 2014
@@ -91,12 +93,17 @@ class Pipedrive
     protected $dealFields;
     /**
      * Placeholder attritube for the pipedrive organizations class
-     * @var Organizations Object
+     * @var \Benhawker\Pipedrive\Library\Organizations Object
      */
     protected $organizations;
     /**
+     * Placeholder attritube for the pipedrive organizations class
+     * @var \Benhawker\Pipedrive\Library\OrganizationFields OrganizationFields Object
+     */
+    protected $organizationFields;
+    /**
      * Placeholder attritube for the pipedrive products class
-     * @var Products Object
+     * @var \Benhawker\Pipedrive\Library\Products Object
      */
     protected $products;
 
@@ -130,6 +137,7 @@ class Pipedrive
         $this->notes         = new Library\Notes($this);
         $this->dealFields    = new Library\DealFields($this);
         $this->organizations = new Library\Organizations($this);
+        $this->organizationFields  = new Library\OrganizationFields($this);
         $this->products      = new Library\Products($this);
     }
 
@@ -206,7 +214,7 @@ class Pipedrive
     /**
      * Returns the Pipedrive Organizations Object
      *
-     * @return Organizations Object
+     * @return \Benhawker\Pipedrive\Library\Organizations Object
      */
     public function organizations()
     {
@@ -214,9 +222,19 @@ class Pipedrive
     }
 
     /**
+     * Returns the Pipedrive OrganizationFields Object
+     *
+     * @return \Benhawker\Pipedrive\Library\OrganizationFields
+     */
+    public function organizationFields()
+    {
+      return $this->organizationFields;
+    }
+
+    /**
      * Returns the Pipedrive Products Object
      *
-     * @return Products Object
+     * @return \Benhawker\Pipedrive\Library\Products Object
      */
     public function products()
     {

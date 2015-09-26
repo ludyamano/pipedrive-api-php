@@ -136,10 +136,10 @@ class Deals
         }
         //if there is no attachment_id set throw error as it is a required field
         if (!isset($attachmentId)) {
-            throw new PipedriveMissingFieldError('You must include a "attachment_product_id" field when deleteing an attached product from a deal');
+            throw new PipedriveMissingFieldError('You must include a "product_attachment_id" field when deleteing an attached product from a deal');
         }
 
-        return $this->curl->delete('deals/' . $dealId . '/products', array('attachment_product_id' => $attachmentId));
+        return $this->curl->delete('deals/' . $dealId . '/products', array('product_attachment_id' => $attachmentId));
     }
 
     /**

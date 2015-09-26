@@ -76,6 +76,8 @@ class Deals
         return $this->curl->get('deals/' . $data['id'] . '/products');
     }
 
+
+
     /**
      * Adds a deal
      *
@@ -116,6 +118,28 @@ class Deals
         }
 
         return $this->curl->post('deals/' . $dealId . '/products', $data);
+    }
+
+    /**
+     * Delete an attached product from a deal
+     *
+     * @param  int   $dealId deal id
+     * @param  int $attachmentId product attachment id
+     * @return array returns detials of the deal-product
+     * @throws PipedriveMissingFieldError
+     */
+    public function deleteProduct($dealId, $attachmentId)
+    {
+        //if there is no deal_id set throw error as it is a required field
+        if (!isset($dealId)) {
+            throw new PipedriveMissingFieldError('You must include a "deal_id" field when deleting an attached product from a deal');
+        }
+        //if there is no attachment_id set throw error as it is a required field
+        if (!isset($attachmentId)) {
+            throw new PipedriveMissingFieldError('You must include a "attachment_product_id" field when deleteing an attached product from a deal');
+        }
+
+        return $this->curl->delete('deals/' . $dealId . '/products', array('attachment_product_id' => $attachmentId));
     }
 
     /**
